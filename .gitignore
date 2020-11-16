@@ -1,0 +1,11 @@
+# TARGET file
+BoardGameClub
+
+# build files
+*.i
+*.s
+*.o
+*.d
+
+# backup files
+*.backup
