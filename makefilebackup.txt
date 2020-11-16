@@ -1,0 +1,26 @@
+CC := gcc
+SRC := $(wildcard *.cpp)
+OBJ := $(patsubst %.cpp, %.o, $(SRC))
+DEP := $(patsubst %.cpp, %.d, $(SRC))
+HDR := $(wildcard *.h)
+TAR := BoardGameClub
+
+$(TAR): $(OBJ)
+	echo $(SRC); \
+	echo $(OBJ); \
+	echo $(DEP); \
+	$(CC) $(OBJ) -o $(TAR)
+
+#include $(DEP)
+
+$(OBJ): $(SRC) $(HDR)
+	$(CC) -c $< -o $@
+
+$(DEP): %.d: %.c
+	@set -e; rm $@; \
+	$(CC) -MM $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm $@.$$$$
+
+clean:
+	rm $(OBJ) $(TAR)
