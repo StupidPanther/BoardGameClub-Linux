@@ -7,6 +7,7 @@ class Gobang
 {
 public:
     movestatus_t IfMoveValid(const plainboard_t pb, const user_t user, position_t pos);
+    bool IfStop(const plainboard_t pb);
     user_t WhoWin(const plainboard_t pb);
 };
 

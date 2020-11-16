@@ -9,3 +9,9 @@ BoardGameClub
 
 # backup files
 *.backup
+
+# vscode files
+.vscode/*
+
+# archive files
+archive/*

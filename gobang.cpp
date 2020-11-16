@@ -8,6 +8,21 @@ movestatus_t Gobang::IfMoveValid(const plainboard_t pb, const user_t user, posit
 		return OCCUPIED;
 }
 
+bool Gobang::IfStop(const plainboard_t pb)
+{
+	if(WhoWin(pb)!=EMPTY)
+		return true;
+	for (unsigned int i = 0; i < ROW_COUNT; i++)
+	{
+		for (unsigned int j = 0; j < COLUMN_COUNT; j++)
+		{
+			if (pb[i][j] == EMPTY)
+				return false;
+		}
+	}
+	return true;
+}
+
 user_t Gobang::WhoWin(const plainboard_t pb)
 {
 	// row oriented

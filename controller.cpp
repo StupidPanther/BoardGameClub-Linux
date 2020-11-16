@@ -104,10 +104,10 @@ int Controller::Exec()
 					// is a win board?
 					if (cur_game == GOBANG)
 					{
-						if (gobang.WhoWin(board.GetPlainBoard()) != EMPTY)
+						if (gobang.IfStop(board.GetPlainBoard()) == true)
 						{
 							//DeleteArchive(fromarchive);
-							string who;
+							string who = "Nobody";
 							if (gobang.WhoWin(board.GetPlainBoard()) == BLACK)
 								who = "BLACK ●";
 							else if (gobang.WhoWin(board.GetPlainBoard()) == WHITE)
@@ -122,7 +122,7 @@ int Controller::Exec()
 						if (flipchess.IfStop(board.GetPlainBoard()) == true)
 						{
 							//DeleteArchive(fromarchive);
-							string who;
+							string who = "Nobody";
 							if (flipchess.WhoWin(board.GetPlainBoard()) == BLACK)
 								who = "BLACK ●";
 							else if (flipchess.WhoWin(board.GetPlainBoard()) == WHITE)
@@ -167,10 +167,10 @@ int Controller::Exec()
 						// one win
 						if (cur_game == GOBANG)
 						{
-							if (gobang.WhoWin(board.GetPlainBoard()) != EMPTY)
+							if (gobang.IfStop(board.GetPlainBoard()) == true)
 							{
 								//DeleteArchive(fromarchive);
-								string who;
+								string who = "Nobody";
 								if (gobang.WhoWin(board.GetPlainBoard()) == BLACK)
 									who = "BLACK ●";
 								else if (gobang.WhoWin(board.GetPlainBoard()) == WHITE)
@@ -185,7 +185,7 @@ int Controller::Exec()
 							if (flipchess.IfStop(board.GetPlainBoard()) == true)
 							{
 								//DeleteArchive(fromarchive);
-								string who;
+								string who = "Nobody";
 								if (flipchess.WhoWin(board.GetPlainBoard()) == BLACK)
 									who = "BLACK ●";
 								else if (flipchess.WhoWin(board.GetPlainBoard()) == WHITE)
@@ -221,7 +221,7 @@ int Controller::Exec()
 				// is a win board?
 				if (cur_game == GOBANG)
 				{
-					if (gobang.WhoWin(board.GetPlainBoard()) != EMPTY)
+					if (gobang.IfStop(board.GetPlainBoard()) == true)
 					{
 						break;
 					}
